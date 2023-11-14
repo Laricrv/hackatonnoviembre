@@ -1,0 +1,108 @@
+{% extends 'base.html'%}
+
+{% block titulo %} Editar {% endblock%}
+
+{% block contenido%}
+
+
+
+
+
+
+
+
+
+
+
+<!--
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<div class="relative bg-white">
+    <div class="lg:absolute lg:inset-0 lg:left-1/2">
+      <img class="h-64 w-full bg-gray-50 object-cover sm:h-80 lg:absolute lg:h-full" src="/static/agenda-anual-ilustrada-2024-flower-memories.jpg" alt="">
+    </div>
+    <div class="pb-24 pt-16 sm:pb-32 sm:pt-24 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:pt-32">
+      <div class="px-6 lg:px-8">
+        <div class="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
+          <h2 class="text-3xl font-bold tracking-tight text-gray-900">Edita tu Checklist</h2>
+          
+          <form action="{{ url_for('editar', id=lista.id) }}" method="POST" class="mt-16">
+            <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+              <div>
+                <label for="nombre" class="block text-sm font-semibold leading-6 text-gray-900">Nombre de la lista</label>
+                <div class="mt-2.5">
+                  <input type="text" name="nombre" id="nombre" autocomplete="nombre" placeholder="Nombre de la lista" value='{{lista.nombre}}' class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+              <div>
+                <label for="mes" class="block text-sm font-semibold leading-6 text-gray-900">Mes</label>
+                <div class="mt-2.5">
+                  <input type="text" name="mes" id="mes" autocomplete="mes" placeholder="Mes" value='{{lista.mes}}' class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+              <p class="text-base font-semibold leading-7 text-indigo-600">Agrega cinco prioridades:</p>
+              <div class="sm:col-span-2">
+                <label for="tarea1" class="block text-sm font-semibold leading-6 text-gray-900">Tareas a completar:</label>
+                <div class="mt-2.5">
+                  <input id="tarea1" name="tarea1" type="text" autocomplete="tarea1" placeholder="Agrega una nueva tarea" value='{{lista.tarea1}}' class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+              <div class="sm:col-span-2">
+                <label for="tarea2" class="block text-sm font-semibold leading-6 text-gray-900"></label>
+                <div class="mt-2.5">
+                  <input id="tarea2" name="tarea2" type="text" autocomplete="tarea2" placeholder="Agrega una nueva tarea" value='{{lista.tarea2}}' class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+              <div class="sm:col-span-2">
+                <label for="tarea3" class="block text-sm font-semibold leading-6 text-gray-900"></label>
+                <div class="mt-2.5">
+                  <input id="tarea3" name="tarea3" type="text" autocomplete="tarea3" placeholder="Agrega una nueva tarea" value='{{lista.tarea3}}' class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+              <div class="sm:col-span-2">
+                <label for="tarea4" class="block text-sm font-semibold leading-6 text-gray-900"></label>
+                <div class="mt-2.5">
+                  <input id="tarea4" name="tarea4" type="text" autocomplete="tarea4" placeholder="Agrega una nueva tarea" value='{{lista.tarea4}}' class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+              <div class="sm:col-span-2">
+                <label for="tarea5" class="block text-sm font-semibold leading-6 text-gray-900"></label>
+                <div class="mt-2.5">
+                  <input id="tarea5" name="tarea5" type="text" autocomplete="tarea5" placeholder="Agrega una nueva tarea" value='{{lista.tarea5}}' class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+            
+              <div class="sm:col-span-2">
+                <div class="flex justify-between text-sm leading-6">
+                  <label for="notas" class="block text-sm font-semibold leading-6 text-gray-900">Notas:</label>
+                  <p id="notass" class="text-gray-400">Limite de 200 caracteres</p>
+                </div>
+                <div class="mt-2.5">
+                  <input id="notas" name="notas" type="text" autocomplete="notas" placeholder="Agrega algo que quieras anotar" value='{{lista.notas}}' class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+              
+            </div>
+            <div class="mt-10 flex justify-end border-t border-gray-900/10 pt-8">
+              <button type="submit" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Editar lista</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  {% endblock %}
+  

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear lista</title>
+</head>
+<body>
+        <!-- Inicio del crud - create -->
+        <h2>Crea una nueva lista</h2>
+
+        <form action="{{ url_for('crear') }}", method="post">
+    
+            <div class="pt-2 pl-8">
+                <input name="nombre" type="text" placeholder="Nombre de la lista">
+                <input name="mes" type="text" placeholder="Mes">
+                <input name="tarea1" type="text" placeholder="Agrega una nueva tarea">
+                <input name="tarea2" type="text" placeholder="Agrega una nueva tarea">
+                <input name="tarea3" type="text" placeholder="Agrega una nueva tarea">
+                <input name="tarea4" type="text" placeholder="Agrega una nueva tarea">
+                <input name="tarea5" type="text" placeholder="Agrega una nueva tarea">
+                <input name="notas" type="text" placeholder="Notas">
+            </div>
+            <div class="pt-4 pl-8">
+                <button type="submit" class="text-sky-600 font-bold py-2 px-4">
+                    Crear lista
+                </button>
+            </div>
+        </form>
+        <!-- Fin del crud - create -->
+</body>
+</html>
+
+{% endfor %}
+
+{% endblock %}
